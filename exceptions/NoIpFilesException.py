@@ -1,0 +1,2 @@
+class NoIpFilesException(FileNotFoundError):
+    pass
