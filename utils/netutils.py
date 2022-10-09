@@ -45,6 +45,17 @@ def check_dom(inp: str):
     return False
 
 
+# 判断是否为域名
+def is_valid_domain(domain):
+    pattern = re.compile(
+        r'^(([a-zA-Z]{1})|([a-zA-Z]{1}[a-zA-Z]{1})|'
+        r'([a-zA-Z]{1}[0-9]{1})|([0-9]{1}[a-zA-Z]{1})|'
+        r'([a-zA-Z0-9][-_.a-zA-Z0-9]{0,61}[a-zA-Z0-9]))\.'
+        r'([a-zA-Z]{2,13}|[a-zA-Z0-9-]{2,30}.[a-zA-Z]{2,3})$'
+    )
+    return True if pattern.match(domain) else False
+
+
 # 检查是否为ip
 def check_ip(inp):
     compile_ip = re.compile(

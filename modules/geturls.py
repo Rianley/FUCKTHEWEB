@@ -35,7 +35,7 @@ def geturlsfromfile(url_open: str):
                     for itt in r:
                         url.append(itt)
                         print_suc(itt)
-            elif check_cidr(it):
+            elif check_cidr(it):  # 如果是cidr
                 ips = list(IPNetwork(it))  # 从cidr获取ip列表
                 # print(ips)
                 for ips_it in ips:
@@ -47,6 +47,8 @@ def geturlsfromfile(url_open: str):
                         for itt in r:
                             url.append(itt)
                             print_suc(itt)
+            else:
+                print_err('无法识别%s' % it)
             for url_it in url:  # 防止cidr格式的
                 ip_list.append(url_it)
         return ip_list
